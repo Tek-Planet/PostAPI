@@ -1,0 +1,11 @@
+ change terminals
+ source venv/bin/activate
+
+ pip install fastapi[all]
+
+ pip freeze
+run app
+ uvicorn main:app --reload
+
+ WARNING: You are using pip version 21.2.4; however, version 23.1.2 is available.
+You should consider upgrading via the '/Users/tek/Documents/Projects/Python/socialapi/venv/bin/python3 -m pip install --upgrade pip' command.
