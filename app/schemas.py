@@ -5,24 +5,6 @@ from typing import Optional
 from pydantic import BaseModel, EmailStr
 
 
-class PostBase(BaseModel):
-    title: str
-    content: str
-    published: bool = True
-
-
-class CreatePost(PostBase):
-    pass
-
-
-class Post(PostBase):
-    id: int
-    created_at: datetime
-
-    class Config:
-        orm_mode = True
-
-
 class User(BaseModel):
     email: EmailStr
     name: str
@@ -58,3 +40,22 @@ class Token(BaseModel):
 class TokenData(BaseModel):
 
     id: Optional[str] = None
+
+
+class PostBase(BaseModel):
+    title: str
+    content: str
+    published: bool = True
+
+
+class CreatePost(PostBase):
+    pass
+
+
+class Post(PostBase):
+    id: int
+    created_at: datetime
+    owner: UserOut
+
+    class Config:
+        orm_mode = True
